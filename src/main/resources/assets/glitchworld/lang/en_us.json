@@ -1,0 +1,15 @@
+{
+  "item.glitchworld.glitch_ingot": "Glitch ingot",
+  "block.glitchworld.glitch_block": "Block of Glitch",
+  "item.glitchworld.glitch_igniter": "Glitch igniter",
+  "creativetab.glitchworld_tab": "Glitch World!",
+  "block.glitchworld.glitch_portal_frame": "Glitch portal frame",
+  "item.glitchworld.raw_glitch": "Raw Glitch",
+  "block.glitchworld.glitch_ore": "Glitch ore",
+  "item.glitchworld.glitch_apple": "Glitch apple",
+  "item.glitchworld.glitch_coal": "Glitch Coal",
+  "block.glitchworld.glitch_chaos_block": "???",
+  "block.glitchworld.glitch_converter": "Glitch converter",
+  "tooltip.glitchworld.glitch_igniter.tooltip": "Works like a lighter. For now.",
+  "item.glitchworld.glitch_pouch": "Glitch pouch"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 2,
+  "group": "glitch_ingot",
+  "ingredient": {
+    "item": "glitchworld:raw_glitch"
+  },
+  "result": {
+    "id": "glitchworld:glitch_ingot"
+  }
+}

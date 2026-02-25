@@ -1,0 +1,8 @@
+{
+  "glitch_break": {
+    "category": "block",
+    "sounds": [
+      "glitchworld:glitch_break"
+    ]
+  }
+}
