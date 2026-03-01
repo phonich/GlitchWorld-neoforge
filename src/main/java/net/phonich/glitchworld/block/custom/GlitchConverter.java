@@ -29,9 +29,10 @@ public class GlitchConverter extends Block {
                 ItemStack newItemStack = new ItemStack(ModItems.GLITCH_COAL.get(), 1);
                 player.addItem(newItemStack);
                 player.getItemInHand(interactionHand).setCount(itemStack.getCount() - 1);
+                player.hurt(player.damageSources().magic(), 1.0F);
+                player.giveExperiencePoints(4);
             }
-            player.hurt(player.damageSources().magic(), 1.0F);
-            player.giveExperiencePoints(4);
+
         }
         return ItemInteractionResult.SUCCESS;
     }

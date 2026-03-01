@@ -1,1 +1,5 @@
 /give @s glitchworld:raw_glitch
+/give @s minecraft:player_head
+/time set day
+/effect clear
+/time set day

@@ -11,5 +11,6 @@ public class ModFoods {
                     .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 4000), 1f)
                     .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4000), 1f)
                     .effect(() -> new MobEffectInstance(MobEffects.DARKNESS, 400), 0.2f)
-                    .alwaysEdible().build(); // чтобы можно было есть при полном голоде
+                    .alwaysEdible() // чтобы можно было есть при полном голоде
+                    .build();
 }
