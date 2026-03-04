@@ -9,6 +9,7 @@ import net.phonich.glitchworld.Glitchworld;
 import net.phonich.glitchworld.Item.custom.GlitchAppleItem;
 import net.phonich.glitchworld.Item.custom.GlitchIgniterItem;
 import net.phonich.glitchworld.Item.custom.GlitchPouchItem;
+import net.phonich.glitchworld.Item.custom.GlitchUpgraderItem;
 import net.phonich.glitchworld.block.custom.FuelItem;
 import net.minecraft.world.entity.monster.Creeper;
 
@@ -32,6 +33,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> GLITCH_INGOT = ITEMS.register("glitch_ingot",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> GLITCH_UPGRADER = ITEMS.register("glitch_upgrader",
+            () -> new GlitchUpgraderItem(new Item.Properties().durability(42)));
 
 
 

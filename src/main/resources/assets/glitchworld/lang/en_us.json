@@ -11,5 +11,7 @@
   "block.glitchworld.glitch_chaos_block": "???",
   "block.glitchworld.glitch_converter": "Glitch converter",
   "tooltip.glitchworld.glitch_igniter.tooltip": "Works like a lighter. For now.",
-  "item.glitchworld.glitch_pouch": "Glitch pouch"
+  "item.glitchworld.glitch_pouch": "Glitch pouch",
+  "block.glitchworld.glitch_coal_block": "Glitch coal block",
+  "item.glitchworld.glitch_upgrader": "Glitch upgrader"
 }

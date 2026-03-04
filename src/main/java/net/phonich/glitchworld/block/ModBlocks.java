@@ -36,6 +36,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> GLITCH_CONVERTER = registerBlock("glitch_converter",
             () -> new GlitchConverter(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(20, 10)));
 
+    public static final DeferredBlock<Block> GLITCH_COAL_BLOCK = registerBlock("glitch_coal_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
             DeferredBlock<T> toReturn = BLOCKS.register(name, block);

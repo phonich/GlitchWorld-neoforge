@@ -1,5 +1,7 @@
 package net.phonich.glitchworld.Item.custom;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -26,12 +28,13 @@ public class GlitchPouchItem extends Item {
         Level level = pContext.getLevel();
         Player player = pContext.getPlayer();
 
-        Random random = new Random(); // объект для рандома
+         // объект для рандома
         Item[] someItems = {RAW_GLITCH.get(), Items.DIAMOND, Items.EMERALD}; // список предметов
-        Item randItem = someItems[random.nextInt(someItems.length)];
+        Item randItem = someItems[level.random.nextInt(someItems.length)];
         if (!level.isClientSide()) {
             player.addItem(new ItemStack(randItem, 1));
             player.getItemInHand(pContext.getHand()).setCount(pContext.getItemInHand().getCount() - 1);
+            level.playSound(null, pContext.getClickedPos(), SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.MASTER, 1.0F, 1.0F);
         }
         return InteractionResult.SUCCESS;
     }

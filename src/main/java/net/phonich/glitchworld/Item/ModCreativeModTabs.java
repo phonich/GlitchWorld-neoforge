@@ -33,7 +33,8 @@ public class ModCreativeModTabs {
                                 output.accept(ModBlocks.GLITCH_CHAOS_BLOCK.get());
                                 output.accept(ModBlocks.GLITCH_CONVERTER.get());
                                 output.accept(ModItems.GLITCH_POUCH.get());
-
+                                output.accept(ModItems.GLITCH_UPGRADER.get());
+                                // output.accept(ModBlocks.GLITCH_COAL_BLOCK.get()); in dev
                             })
                             .build());
 
