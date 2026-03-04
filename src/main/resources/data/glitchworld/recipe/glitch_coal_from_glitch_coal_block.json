@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "glitchworld:glitch_coal_block"
+    }
+  ],
+  "result": {
+    "id": "glitchworld:glitch_coal",
+    "count": 9
+  }
+}

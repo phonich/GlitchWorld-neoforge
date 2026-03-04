@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  @",
+    " # ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "glitchworld:glitch_coal"
+    },
+    "@": {
+      "item": "glitchworld:raw_glitch"
+    }
+  },
+  "result": {
+    "id": "glitchworld:glitch_igniter"
+  }
+}

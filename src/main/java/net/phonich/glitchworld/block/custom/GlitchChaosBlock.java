@@ -14,8 +14,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.phonich.glitchworld.block.ModBlocks;
 
 
+import java.util.Map;
 import java.util.Random;
 
 public class GlitchChaosBlock extends Block {
@@ -26,53 +28,31 @@ public class GlitchChaosBlock extends Block {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide) {
-            Random random = new Random();
-            int num = random.nextInt(1, 3);
-            if (num == 1) {
-                int y = 1;
-                while (!level.isEmptyBlock(pos.above(y))) {
-                    BlockState newState = level.getBlockState(pos.above(y));
-                    Block blockAbove = newState.getBlock(); // узнаем уже какой блок там стоит
-                    y++;
-                    if (blockAbove != Blocks.NETHER_BRICK_FENCE) {
-                        return InteractionResult.SUCCESS;
+                Map<Block, Block> blocksConvert = Map.of(
+                        Blocks.GRASS_BLOCK, Blocks.DIRT,
+                        Blocks.STONE, ModBlocks.GLITCH_STONE.get(),
+                        Blocks.DIAMOND_ORE, ModBlocks.GLITCH_ORE.get()
+                );
+                for (int x = -5; x < 5; x++) {
+                    for (int z = -5; z < 5; z++) {
+                        int someX = (pos.getX()) + x;
+                        int someZ = (pos.getZ()) + z;
+                        int someY = pos.getY();
+                        BlockPos somePos = new BlockPos(someX, someY, someZ);
+                        if (level.isEmptyBlock(somePos)) {
+                            somePos = somePos.below(1);
+                            if (level.isEmptyBlock(somePos)) {
+                                continue;
+                            }
+                        }
+                        Block newBlock = level.getBlockState(somePos).getBlock();
+                        if (blocksConvert.containsKey(newBlock)) {
+                            level.destroyBlock(somePos, false);
+                            level.setBlock(somePos, blocksConvert.get(newBlock).defaultBlockState(), 11);
+                        }
                     }
-                }
-
-                level.setBlock(pos.above(y), Blocks.NETHER_BRICK_FENCE.defaultBlockState(), 11);
-            } else if (num == 2) {
-
-                int x = 1;
-                int z = 0;
-                Block[] someBlocks = {Blocks.ACACIA_LOG, Blocks.DIAMOND_BLOCK, Blocks.ANVIL};
-                Block randBlock = someBlocks[random.nextInt(someBlocks.length)];
-                //Block randBlock = ModBlocks.GLITCH_BLOCK.get();
-                while (1 > 0) {
-                    if (!level.getBlockState(pos.below(1).east(x)).is(randBlock)) {
-
-                        level.setBlock(pos.below().east(x), randBlock.defaultBlockState(), 11);
-                        return InteractionResult.SUCCESS;
-
-                    } else if (!level.getBlockState(pos.below(1).north(x)).is(randBlock)) {
-
-                        level.setBlock(pos.below().north(x), randBlock.defaultBlockState(), 11);
-                        return InteractionResult.SUCCESS;
-
-                    } else if (!level.getBlockState(pos.below(1).west(x)).is(randBlock)) {
-
-                        level.setBlock(pos.below().west(x), randBlock.defaultBlockState(), 11);
-                        return InteractionResult.SUCCESS;
-
-                    } else if (!level.getBlockState(pos.below(1).south(x)).is(randBlock)) {
-
-                        level.setBlock(pos.below().south(x), randBlock.defaultBlockState(), 11);
-                        return InteractionResult.SUCCESS;
-
-                    }
-                    x++;
-                }
             }
-        }
+                }
         return InteractionResult.SUCCESS;
     }
 }

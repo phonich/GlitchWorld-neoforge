@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.phonich.glitchworld.Glitchworld;
 import net.phonich.glitchworld.Item.ModItems;
+//import net.phonich.glitchworld.block.custom.GlitchChaosBlock;
 import net.phonich.glitchworld.block.custom.GlitchChaosBlock;
 import net.phonich.glitchworld.block.custom.GlitchConverter;
 
@@ -38,6 +39,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> GLITCH_COAL_BLOCK = registerBlock("glitch_coal_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
+
+    public static final DeferredBlock<Block> GLITCH_STONE = registerBlock("glitch_stone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
             DeferredBlock<T> toReturn = BLOCKS.register(name, block);
