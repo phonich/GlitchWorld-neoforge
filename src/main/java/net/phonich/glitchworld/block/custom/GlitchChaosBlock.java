@@ -25,6 +25,7 @@ public class GlitchChaosBlock extends Block {
         super(pProperties);
     }
 
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide) {
@@ -33,8 +34,8 @@ public class GlitchChaosBlock extends Block {
                         Blocks.STONE, ModBlocks.GLITCH_STONE.get(),
                         Blocks.DIAMOND_ORE, ModBlocks.GLITCH_ORE.get()
                 );
-                for (int x = -5; x < 5; x++) {
-                    for (int z = -5; z < 5; z++) {
+                for (int x = -6; x < 6; x++) {
+                    for (int z = -6; z < 6; z++) {
                         int someX = (pos.getX()) + x;
                         int someZ = (pos.getZ()) + z;
                         int someY = pos.getY();
@@ -47,11 +48,16 @@ public class GlitchChaosBlock extends Block {
                         }
                         Block newBlock = level.getBlockState(somePos).getBlock();
                         if (blocksConvert.containsKey(newBlock)) {
-                            level.destroyBlock(somePos, false);
-                            level.setBlock(somePos, blocksConvert.get(newBlock).defaultBlockState(), 11);
+                            int num = level.random.nextInt(1, 3);
+
+                            if (num == 1) {
+                                level.setBlock(somePos, blocksConvert.get(newBlock).defaultBlockState(), 11);
+                            }
                         }
                     }
             }
+                level.playSound(null, pos, SoundEvents.ANCIENT_DEBRIS_FALL, SoundSource.BLOCKS, 1F, 1F);
+                level.destroyBlock(pos, false);
                 }
         return InteractionResult.SUCCESS;
     }

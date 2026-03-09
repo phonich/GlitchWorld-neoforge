@@ -14,5 +14,8 @@
   "item.glitchworld.glitch_pouch": "Glitch pouch",
   "block.glitchworld.glitch_coal_block": "Glitch coal block",
   "item.glitchworld.glitch_upgrader": "Glitch upgrader",
-  "block.glitchworld.glitch_stone": "Glitch stone"
+  "block.glitchworld.glitch_stone": "Glitch stone",
+  "item.glitchworld.glitch_dust": "Glitch dust",
+  "item.glitchworld.hammer": "Hammer",
+  "tooltip.glitchworld.hammer.tooltip": "Crushes unstable matter into dust"
 }

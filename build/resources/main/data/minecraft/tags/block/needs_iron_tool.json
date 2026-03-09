@@ -1,6 +1,8 @@
 {
   "values": [
-      "glitchworld:glitch_block",
-      "glitchworld:glitch_converter"
+    "glitchworld:glitch_ore",
+    "glitchworld:glitch_block",
+    "glitchworld:glitch_converter",
+    "glitchworld:glitch_coal_block"
   ]
 }

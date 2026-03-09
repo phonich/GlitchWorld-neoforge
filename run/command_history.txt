@@ -3,3 +3,11 @@
 /time set day
 /effect clear
 /time set day
+/effect clear
+/time set day
+/gamerule doDaylightCycle false
+/effect clear
+/weather clear
+/effect clear
+/weather clear
+/effect clear

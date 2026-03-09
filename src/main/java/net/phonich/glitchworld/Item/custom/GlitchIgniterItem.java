@@ -13,15 +13,20 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import org.jetbrains.annotations.Nullable;
-import org.openjdk.nashorn.internal.runtime.arrays.IteratorAction;
+
 
 import java.util.List;
-import java.util.function.Consumer;
+
 
 public class GlitchIgniterItem extends Item {
     public GlitchIgniterItem(Properties pProperties) {
         super(pProperties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("tooltip.glitchworld.glitch_igniter.tooltip").withStyle(ChatFormatting.GRAY));
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
     @Override
@@ -39,11 +44,4 @@ public class GlitchIgniterItem extends Item {
              return InteractionResult.SUCCESS;
     }
 
-
-
-   // @Override
-    //public void appendHoverText(ItemStack p_41421_, TooltipContext p_339594_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        //p_339594_(Component.translatable("tooltip.mymod.glitch_igniter.tooltip").withStyle(ChatFormatting.GRAY));
-        //super.appendHoverText(p_41421_, p_339594_, p_41423_, p_41424_);
-   // }
 }

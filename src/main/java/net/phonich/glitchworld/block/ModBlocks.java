@@ -29,10 +29,10 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(30, 40), BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE).lightLevel(blockState -> 11)));
 
     public static final DeferredBlock<Block> GLITCH_CHAOS_BLOCK = registerBlock("glitch_chaos_block",
-            ()-> new GlitchChaosBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).lightLevel(state -> 7)));
+            ()-> new GlitchChaosBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).lightLevel(state -> 7).noLootTable()));
 
     public static final DeferredBlock<Block> GLITCH_PORTAL_FRAME = registerBlock("glitch_portal_frame",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).noLootTable()));
 
     public static final DeferredBlock<Block> GLITCH_CONVERTER = registerBlock("glitch_converter",
             () -> new GlitchConverter(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(20, 10)));
