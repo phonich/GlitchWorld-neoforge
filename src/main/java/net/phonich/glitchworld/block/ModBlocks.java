@@ -16,6 +16,7 @@ import net.phonich.glitchworld.Item.ModItems;
 //import net.phonich.glitchworld.block.custom.GlitchChaosBlock;
 import net.phonich.glitchworld.block.custom.GlitchChaosBlock;
 import net.phonich.glitchworld.block.custom.GlitchConverter;
+import net.phonich.glitchworld.block.custom.GlitchLampBlock;
 
 import java.util.function.Supplier;
 
@@ -42,6 +43,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> GLITCH_STONE = registerBlock("glitch_stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+
+    public static final DeferredBlock<Block> GLITCH_LAMP = registerBlock("glitch_lamp",
+            () -> new GlitchLampBlock(BlockBehaviour.Properties.of().lightLevel(state -> state.getValue(GlitchLampBlock.CLICKED) ? 13 : 0))); // если clicked true, то меняем на 13, если нет - то на 0
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

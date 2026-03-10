@@ -25,6 +25,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.GLITCH_STONE.get());
         add(ModBlocks.GLITCH_ORE.get(),
                 block -> createOreDrop(ModBlocks.GLITCH_ORE.get(), ModItems.RAW_GLITCH.get()));
+        dropSelf(ModBlocks.GLITCH_LAMP.get());
     }
 
     @Override
