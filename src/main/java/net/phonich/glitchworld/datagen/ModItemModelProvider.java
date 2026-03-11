@@ -22,5 +22,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.GLITCH_UPGRADER.get());
         basicItem(ModItems.HAMMER.get());
         basicItem(ModItems.RAW_GLITCH.get());
+        basicItem(ModItems.DEV_TOOl.get());
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.phonich.glitchworld.component.ModDataComponents;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -48,6 +49,7 @@ public class GlitchUpgraderItem extends Item {
                 if (num == 1) {
                     level.setBlockAndUpdate(blockPos, blocksUpgradedVar.get(blockClicked).defaultBlockState());
                     level.playSound(null, blockPos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+
                 }
                 else {
                     if (blockClicked.equals(Blocks.COAL_BLOCK)) {
@@ -62,6 +64,8 @@ public class GlitchUpgraderItem extends Item {
                 });
             }
         }
+
+
         return InteractionResult.SUCCESS;
     }
 }

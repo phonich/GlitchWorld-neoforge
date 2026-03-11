@@ -33,6 +33,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.phonich.glitchworld.Item.ModCreativeModTabs;
 import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.ModBlocks;
+import net.phonich.glitchworld.component.ModDataComponents;
 import org.slf4j.Logger;
 
 @Mod(Glitchworld.MODID)
@@ -46,6 +47,7 @@ public class Glitchworld {
         NeoForge.EVENT_BUS.register(this);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModDataComponents.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

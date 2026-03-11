@@ -1,5 +1,6 @@
 package net.phonich.glitchworld.Item;
 
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.FlintAndSteelItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -39,6 +40,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> HAMMER = ITEMS.register("hammer",
             () -> new HammerItem(new Item.Properties().durability(100)));
+
+    public static final DeferredItem<Item> DEV_TOOl = ITEMS.register("dev_tool",
+            () -> new DevToolItem(new Item.Properties()));
 
 
 

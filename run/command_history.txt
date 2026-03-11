@@ -11,3 +11,4 @@
 /effect clear
 /weather clear
 /effect clear
+/give @s glitchworld:dev_tool
