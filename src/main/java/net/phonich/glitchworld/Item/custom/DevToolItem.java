@@ -41,7 +41,7 @@ public class DevToolItem extends Item {
 
 
         if (itemStack.get(ModDataComponents.THE_BLOCK_WAS) != null && Screen.hasShiftDown()) {
-            components.add(Component.translatable("Block saved: " + itemStack.get(ModDataComponents.THE_BLOCK_WAS).getBlock().getDescriptionId()));
+            components.add(Component.translatable("tooltip.glitchworld.devtool.tooltip", itemStack.get(ModDataComponents.THE_BLOCK_WAS).getBlock().getName()));
         }
 
         super.appendHoverText(itemStack, tooltipContext, components, tooltipFlag);

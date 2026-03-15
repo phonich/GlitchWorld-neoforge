@@ -11,6 +11,9 @@ import net.phonich.glitchworld.Glitchworld;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> NEEDS_GLITCH_TOOL = createTag("needs_glitch_tool");
+        public static final TagKey<Block> INCORRECT_FOR_GLITCH_TOOL = createTag("incorrect_for_glitch_tool");
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Glitchworld.MODID, name));
         }

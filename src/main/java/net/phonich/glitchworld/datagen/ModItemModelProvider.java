@@ -1,6 +1,7 @@
 package net.phonich.glitchworld.datagen;
 
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.phonich.glitchworld.Glitchworld;
@@ -23,5 +24,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HAMMER.get());
         basicItem(ModItems.RAW_GLITCH.get());
         basicItem(ModItems.DEV_TOOl.get());
+        handheldItem(ModItems.GLITCH_AXE.get());
+        handheldItem(ModItems.GLITCH_PICKAXE.get());
+        handheldItem(ModItems.GLITCH_SHOVEL.get());
+        handheldItem(ModItems.GLITCH_SWORD.get());
     }
 }

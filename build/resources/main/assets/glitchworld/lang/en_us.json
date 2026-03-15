@@ -19,5 +19,10 @@
   "item.glitchworld.hammer": "Hammer",
   "tooltip.glitchworld.hammer.tooltip": "Crushes unstable matter into dust",
   "block.glitchworld.glitch_lamp": "Glitch lamp",
-  "item.glitchworld.dev_tool": "Dev tool"
+  "item.glitchworld.dev_tool": "Dev tool",
+  "tooltip.glitchworld.devtool.tooltip": "Block saved: %s",
+  "item.glitchworld.glitch_sword": "Glitch sword",
+  "item.glitchworld.glitch_axe": "Glitch axe",
+  "item.glitchworld.glitch_pickaxe": "Glitch pickaxe",
+  "item.glitchworld.glitch_shovel": "Glitch shovel"
 }

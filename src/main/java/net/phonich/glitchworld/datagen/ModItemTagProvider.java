@@ -3,6 +3,7 @@ package net.phonich.glitchworld.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.phonich.glitchworld.Glitchworld;
@@ -21,5 +22,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Items.GLITCH_FOOD)
                 .add(ModItems.GLITCH_APPLE.get());
+        tag(ItemTags.SWORDS) // Добавляем в соответствующие теги наши инструменты (чтобы можно было всю эту историю зачаровывать)
+                .add(ModItems.GLITCH_SWORD.get());
+        tag(ItemTags.PICKAXES)
+                .add(ModItems.GLITCH_PICKAXE.get());
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.GLITCH_SHOVEL.get());
+        tag(ItemTags.AXES)
+                .add(ModItems.GLITCH_AXE.get());
+
     }
 }

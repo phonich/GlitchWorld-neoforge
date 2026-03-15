@@ -39,6 +39,10 @@ public class ModCreativeModTabs {
                                 output.accept(ModItems.GLITCH_DUST.get());
                                 output.accept(ModItems.HAMMER.get());
                                 output.accept(ModBlocks.GLITCH_LAMP.get());
+                                output.accept(ModItems.GLITCH_AXE.get());
+                                output.accept(ModItems.GLITCH_PICKAXE.get());
+                                output.accept(ModItems.GLITCH_SHOVEL.get());
+                                output.accept(ModItems.GLITCH_SWORD.get());
                             })
                             .build());
 

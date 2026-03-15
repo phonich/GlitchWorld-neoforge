@@ -1,8 +1,7 @@
 package net.phonich.glitchworld.Item;
 
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.world.item.FlintAndSteelItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -44,7 +43,14 @@ public class ModItems {
     public static final DeferredItem<Item> DEV_TOOl = ITEMS.register("dev_tool",
             () -> new DevToolItem(new Item.Properties()));
 
-
+    public static final DeferredItem<SwordItem> GLITCH_SWORD = ITEMS.register("glitch_sword",
+            () -> new SwordItem(ModToolTiers.GLITCH, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.GLITCH, 10, -2f))));
+    public static final DeferredItem<PickaxeItem> GLITCH_PICKAXE = ITEMS.register("glitch_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.GLITCH, new Item.Properties().attributes(PickaxeItem.createAttributes(ModToolTiers.GLITCH, 6, -2f))));
+    public static final DeferredItem<ShovelItem> GLITCH_SHOVEL = ITEMS.register("glitch_shovel",
+            () -> new ShovelItem(ModToolTiers.GLITCH, new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.GLITCH, 6, -2f))));
+    public static final DeferredItem<AxeItem> GLITCH_AXE = ITEMS.register("glitch_axe",
+            () -> new AxeItem(ModToolTiers.GLITCH, new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.GLITCH, 11, -3f))));
 
 
 

@@ -1,6 +1,7 @@
 package net.phonich.glitchworld.block;
 
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -58,6 +59,8 @@ public class ModBlocks {
         ModItems.ITEMS.register(name,
                 () -> new BlockItem(block.get(), new Item.Properties()));
     }
+
+
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
