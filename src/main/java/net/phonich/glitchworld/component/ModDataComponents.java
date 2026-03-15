@@ -1,5 +1,6 @@
 package net.phonich.glitchworld.component;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +18,9 @@ public class ModDataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockState>> THE_BLOCK_WAS = register("the_block_was",
             builder -> builder.persistent(BlockState.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> IS_GLITCH_STATE_ACTIVE = register("is_glitch_state_active",
+            builder -> builder.persistent(Codec.BOOL));
 
 
 

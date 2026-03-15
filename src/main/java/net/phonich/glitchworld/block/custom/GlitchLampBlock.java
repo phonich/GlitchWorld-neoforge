@@ -12,7 +12,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class GlitchLampBlock extends Block {
 
-    public static final BooleanProperty CLICKED = BooleanProperty.create("clicked"); // свойство состяние блока "clicked" (тк boolean получается что false и true)
+    public static final BooleanProperty CLICKED = BooleanProperty.create("clicked"); // свойство состяние блока "clicked" (false и true)
 
     public GlitchLampBlock(Properties properties) {
         super(properties);
@@ -30,7 +30,7 @@ public class GlitchLampBlock extends Block {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { // просто надо
         builder.add(CLICKED);
     }
 }
