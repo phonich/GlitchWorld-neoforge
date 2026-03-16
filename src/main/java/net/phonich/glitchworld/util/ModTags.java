@@ -19,9 +19,10 @@ public class ModTags {
         }
     }
     public static class Items {
-        public static final TagKey<Item> GLITCH_FOOD = createTag("glitch_food");
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Glitchworld.MODID, name));
         }
+        public static final TagKey<Item> GLITCH_FOOD = createTag("glitch_food");
+        public static final TagKey<Item> GLITCH_TOOLS = createTag("glitch_tools");
     }
 }

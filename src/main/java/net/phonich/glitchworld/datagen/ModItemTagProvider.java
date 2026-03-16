@@ -31,5 +31,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.AXES)
                 .add(ModItems.GLITCH_AXE.get());
 
+        tag(ModTags.Items.GLITCH_TOOLS)
+                .add(ModItems.GLITCH_AXE.get())
+                .add(ModItems.GLITCH_SWORD.get())
+                .add(ModItems.GLITCH_SHOVEL.get())
+                .add(ModItems.GLITCH_PICKAXE.get());
     }
 }
