@@ -17,7 +17,8 @@ import net.phonich.glitchworld.Item.ModCreativeModTabs;
 import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.ModBlocks;
 import net.phonich.glitchworld.component.ModDataComponents;
-import net.phonich.glitchworld.events.tools.SwordEvents;
+import net.phonich.glitchworld.events.tools.GeneralToolsEvents;
+import net.phonich.glitchworld.events.tools.ToolsEvents;
 import org.slf4j.Logger;
 
 @Mod(Glitchworld.MODID)
@@ -31,7 +32,7 @@ public class Glitchworld {
         NeoForge.EVENT_BUS.register(this);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        NeoForge.EVENT_BUS.register(SwordEvents.class); // регаем события правого клика
+        NeoForge.EVENT_BUS.register(GeneralToolsEvents.class); // регаем события правого клика
         ModDataComponents.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         modEventBus.addListener(this::addCreative);

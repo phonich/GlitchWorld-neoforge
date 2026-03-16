@@ -39,7 +39,6 @@ public class GlitchAppleItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         if (livingEntity instanceof Player player) {
             BlockPos position = player.blockPosition();
-            Random random = new Random();
             int num = level.random.nextInt(1, 6);
             if (!level.isClientSide) {
                 if (num == 1) {
@@ -78,8 +77,8 @@ public class GlitchAppleItem extends Item {
                     level.playSound(null, position, SoundEvents.DECORATED_POT_INSERT, SoundSource.PLAYERS, 1.0f, 1.0f);
                 } else if (num == 5) {
                     for (int i = 1; i < 10; i++) { // задумывается как много телепортаций за секунды 2, а не за 1 тик. Как сделать задержку - пока не понимаю
-                        int newX = position.getX() + random.nextInt(-10, 10);
-                        int newZ = position.getZ() + random.nextInt(-10, 10);
+                        int newX = position.getX() + level.random.nextInt(-10, 10);
+                        int newZ = position.getZ() + level.random.nextInt(-10, 10);
                         int oldY = position.getY();
                         while (!level.isEmptyBlock(new BlockPos(newX, oldY, newZ))) {
                             oldY++;

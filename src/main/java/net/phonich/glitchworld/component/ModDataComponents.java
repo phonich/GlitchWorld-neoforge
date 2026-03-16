@@ -22,7 +22,8 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> IS_GLITCH_STATE_ACTIVE = register("is_glitch_state_active",
             builder -> builder.persistent(Codec.BOOL));
 
-
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> HITS_TO_ANOMALY = register("hits_to_anomaly",
+            builder -> builder.persistent(Codec.INT));
 
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());
