@@ -26,5 +26,7 @@
   "item.glitchworld.glitch_pickaxe": "Glitch Pickaxe",
   "item.glitchworld.glitch_shovel": "Glitch Shovel",
   "tooltip.glitchworld.state_active.tooltip": "§7State: §a§lACTIVE",
-  "tooltip.glitchworld.state_deactive.tooltip": "§7State: §c§lDEACTIVE"
+  "tooltip.glitchworld.state_deactive.tooltip": "§7State: §c§lDEACTIVE",
+  "tooltip.glitchworld.glitch_pickaxe_on.tooltip": "3x3 mode now §a§lON!",
+  "tooltip.glitchworld.glitch_pickaxe_off.tooltip": "3x3 mode now §c§lOFF!"
 }

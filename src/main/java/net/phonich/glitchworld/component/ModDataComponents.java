@@ -25,6 +25,9 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> HITS_TO_ANOMALY = register("hits_to_anomaly",
             builder -> builder.persistent(Codec.INT));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> IS_BIGDICK_ON = register("is_bigdick_on",
+            builder -> builder.persistent(Codec.BOOL));
+
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());
     }

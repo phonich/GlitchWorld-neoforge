@@ -11,6 +11,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.phonich.glitchworld.Glitchworld;
 import net.phonich.glitchworld.Item.ModItems;
@@ -34,13 +35,14 @@ public class GeneralToolsEvents {
     public static void onRightClick(PlayerInteractEvent.RightClickItem event) {
         ItemStack stack = event.getItemStack();
         if (stack.is(ModTags.Items.GLITCH_TOOLS)) {
-            ToolsEvents.onRightClickTool(event.getEntity(), event.getLevel(), stack);
+            ToolsEvents.onRightClickTool(event);
         }
     }
 
     @SubscribeEvent
     public static void onEntityDamage(LivingDamageEvent.Pre event) {
-        if (event.getSource().getWeaponItem().is(ModTags.Items.GLITCH_TOOLS)) { // Первое - если ударил игрок, второе - обязательно проверка, чтобы не вызвался дважды
+        ItemStack weaponItem = event.getSource().getWeaponItem();
+        if (weaponItem != null && weaponItem.is(ModTags.Items.GLITCH_TOOLS)) { // первое - проверка, есть ли предмет вообще, ибо урон может быть не только от предмета и игра вылетит
             ToolsEvents.onEntityDamageTool(event);
         }
     }
@@ -49,8 +51,16 @@ public class GeneralToolsEvents {
     public static void onPlayerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
-        if (stack.is(ModTags.Items.GLITCH_TOOLS)) { // каждые пол секунды, если предмет в руке - глитч + если состояние true
+        if (stack.is(ModTags.Items.GLITCH_TOOLS)) { // каждые пол секунды, если предмет в руке - глитч
                 ToolsEvents.onPlayerTickTool(event);
             }
         }
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
+        if (stack.is(ModTags.Items.GLITCH_TOOLS)) {
+            ToolsEvents.onBlockBreakTool(event, stack);
+        }
     }
+}

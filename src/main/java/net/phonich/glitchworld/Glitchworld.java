@@ -32,7 +32,7 @@ public class Glitchworld {
         NeoForge.EVENT_BUS.register(this);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        NeoForge.EVENT_BUS.register(GeneralToolsEvents.class); // регаем события правого клика
+        NeoForge.EVENT_BUS.register(GeneralToolsEvents.class); // регаем события
         ModDataComponents.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         modEventBus.addListener(this::addCreative);
