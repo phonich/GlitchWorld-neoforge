@@ -27,6 +27,10 @@
   "item.glitchworld.glitch_shovel": "Glitch Shovel",
   "tooltip.glitchworld.state_active.tooltip": "§7State: §a§lACTIVE",
   "tooltip.glitchworld.state_deactive.tooltip": "§7State: §c§lDEACTIVE",
-  "tooltip.glitchworld.glitch_pickaxe_on.tooltip": "3x3 mode now §a§lON!",
-  "tooltip.glitchworld.glitch_pickaxe_off.tooltip": "3x3 mode now §c§lOFF!"
+  "tooltip.glitchworld.glitch_3x3_on.tooltip": "3x3 mode now §a§lON!",
+  "tooltip.glitchworld.glitch_3x3_off.tooltip": "3x3 mode now §c§lOFF!",
+  "item.glitchworld.glitch_helmet": "Glitch Helmet",
+  "item.glitchworld.glitch_chestplate": "Glitch Chestplate",
+  "item.glitchworld.glitch_leggings": "Glitch Leggings",
+  "item.glitchworld.glitch_boots": "Glitch Boots"
 }

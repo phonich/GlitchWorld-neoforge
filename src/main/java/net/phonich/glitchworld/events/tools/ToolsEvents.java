@@ -12,6 +12,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
@@ -43,45 +44,41 @@ public class ToolsEvents {
                 if (!active) {
                     level.playSound(null, player.getOnPos(), SoundEvents.BEACON_ACTIVATE, SoundSource.MASTER);
                 }
-
-                if (stack.is(ModItems.GLITCH_SWORD.get())) { // МЕЧ
-                    if (active) {
+                if (active) {
+                    if (stack.is(ModItems.GLITCH_SWORD.get())) { // МЕЧ
                         player.removeEffect(MobEffects.MOVEMENT_SPEED);
-                    }
-
-                } else if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
-                    if (active) {
+                    } else if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
+                        player.removeEffect(MobEffects.NIGHT_VISION);
+                    } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
                         player.removeEffect(MobEffects.DIG_SPEED);
                     }
-
                 }
-            } else {
-                if (stack.is(ModItems.GLITCH_SWORD.get()) && MyMethods.getStateOfGlitchItem(stack)) { // МЕЧ
-                    Arrow arrow = new Arrow(EntityType.ARROW, level);
-                    arrow.moveTo(MyMethods.getPosForArrow(player, 1));
-                    arrow.setOwner(player);
-                    arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 1.0F);
-                    level.addFreshEntity(arrow);
-                    if (level instanceof ServerLevel level1) {
-                        stack.hurtAndBreak(3, level1, player, item -> {
-                            player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND);
-                        });
+            }
+                else {
+                    if (stack.is(ModItems.GLITCH_SWORD.get()) && MyMethods.getStateOfGlitchItem(stack) && !player.getCooldowns().isOnCooldown(stack.getItem())) { // МЕЧ
+                        Arrow arrow = new Arrow(EntityType.ARROW, level);
+                        arrow.moveTo(MyMethods.getPosForArrow(player, 1));
+                        arrow.setOwner(player);
+                        arrow.pickup = AbstractArrow.Pickup.DISALLOWED; // нельзя поднимать стрелу
+                        arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 1.0F);
+                        level.addFreshEntity(arrow);
+                        if (level instanceof ServerLevel level1) {
+                            stack.hurtAndBreak(3, level1, player, item -> {
+                                player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND);
+                            });
+                        }
+                        player.getCooldowns().addCooldown(stack.getItem(), 30); // ставим кулдаун
                     }
-                }
 
-                if (stack.is(ModItems.GLITCH_PICKAXE.get()) && MyMethods.getStateOfGlitchItem(stack)) {
-                    boolean active = stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false);
-                    stack.set(ModDataComponents.IS_BIGDICK_ON, !active);
-                    if (!active) {
-                        player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_pickaxe_on.tooltip"), true);
-                    }
-                    else {
-                        player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_pickaxe_off.tooltip"), true);
+                    if (stack.is(ModItems.GLITCH_PICKAXE.get()) && MyMethods.getStateOfGlitchItem(stack)) { // КИРКА
+                        MyMethods.changeBigDickState(stack, player);
+                    } else if (stack.is(ModItems.GLITCH_SHOVEL.get()) && MyMethods.getStateOfGlitchItem(stack)) {
+                        MyMethods.changeBigDickState(stack, player);
                     }
                 }
             }
         }
-    }
+
 
     public static void onPlayerTickTool(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
@@ -90,15 +87,16 @@ public class ToolsEvents {
             if (stack.getOrDefault(ModDataComponents.IS_GLITCH_STATE_ACTIVE, false)) {
                 if (stack.is(ModItems.GLITCH_SWORD.get())) { // МЕЧ
                     MyMethods.updateDurationOfEffect(MobEffects.MOVEMENT_SPEED, player);
-                }
-
-                else if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
+                } else if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
+                    MyMethods.updateDurationOfEffect(MobEffects.NIGHT_VISION, player);
+                } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
                     MyMethods.updateDurationOfEffect(MobEffects.DIG_SPEED, player);
                 }
 
             }
         }
     }
+
     public static void onEntityDamageTool(LivingDamageEvent.Pre event) {
         if (event.getSource().getEntity() instanceof Player player && !event.getEntity().level().isClientSide) {
             ItemStack stack = player.getMainHandItem();
@@ -126,15 +124,18 @@ public class ToolsEvents {
 
     public static void onBlockBreakTool(BlockEvent.BreakEvent event, ItemStack stack) {
         if (stack.getOrDefault(ModDataComponents.IS_GLITCH_STATE_ACTIVE, false)) {
+            Player player = event.getPlayer();
+            Level level = event.getPlayer().level();
+            BlockPos pos = event.getPos();
+            BlockState state = event.getState();
             if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
-                Player player = event.getPlayer();
-                Level level = event.getPlayer().level();
-                BlockPos pos = event.getPos();
-                BlockState state = event.getState();
                 if (stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false)) {
                     MyMethods.bigDick(player, level, pos, state, BlockTags.MINEABLE_WITH_PICKAXE);
                 }
-
+            } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
+                if (stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false)) { // ЛОПАТА
+                    MyMethods.bigDick(player, level, pos, state, BlockTags.MINEABLE_WITH_SHOVEL);
+                }
             }
         }
     }

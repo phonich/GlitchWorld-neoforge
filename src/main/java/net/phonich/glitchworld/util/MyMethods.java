@@ -3,6 +3,7 @@ package net.phonich.glitchworld.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.SimpleContainer;
@@ -48,7 +49,6 @@ public class MyMethods {
     public static void bigDick(Player player, Level level, BlockPos pos, BlockState state, TagKey<Block> tag) {
         if (state.canHarvestBlock(level, pos, player)) {
 
-
             Direction directon = player.getDirection();
             float pitch = player.getXRot();
 
@@ -64,10 +64,7 @@ public class MyMethods {
                     }
 
                     if (level.getBlockState(newPos).is(tag)) {
-//                        autoSmelting(level, state.getDrops(new LootParams.Builder((ServerLevel) level)
-//                                .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(pos))
-//                                .withParameter(LootContextParams.TOOL, player.getMainHandItem())
-//                                .withParameter(LootContextParams.THIS_ENTITY, player))); // параметры для дропа
+
                         level.destroyBlock(newPos, true, player);
                     }
                 }
@@ -75,10 +72,13 @@ public class MyMethods {
         }
     }
 
-//    public static void autoSmelting(Level level, List<ItemStack> drops) {
-//        RecipeManager recipes = level.getRecipeManager(); // тут лежат все крафты
-//        for (ItemStack drop : drops) {
-//            Optional<RecipeHolder<Recipe<RecipeInput>>> recipe = recipes.getRecipeFor(RecipeType.SMELTING, new SimpleContainer(drop), level);
-//        }
-//    }
+    public static void changeBigDickState(ItemStack stack, Player player) {
+        boolean active = stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false);
+        stack.set(ModDataComponents.IS_BIGDICK_ON, !active);
+        if (!active) {
+            player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_3x3_on.tooltip"), true);
+        } else {
+            player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_3x3_off.tooltip"), true);
+        }
+    }
 }

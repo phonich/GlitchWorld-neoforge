@@ -36,5 +36,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GLITCH_SWORD.get())
                 .add(ModItems.GLITCH_SHOVEL.get())
                 .add(ModItems.GLITCH_PICKAXE.get());
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.GLITCH_BOOTS.get())
+                .add(ModItems.GLITCH_CHESTPLATE.get())
+                .add(ModItems.GLITCH_LEGGINGS.get())
+                .add(ModItems.GLITCH_HELMET.get());
     }
+
 }

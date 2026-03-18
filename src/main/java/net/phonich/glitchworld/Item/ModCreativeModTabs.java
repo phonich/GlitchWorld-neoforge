@@ -43,6 +43,10 @@ public class ModCreativeModTabs {
                                 output.accept(ModItems.GLITCH_PICKAXE.get());
                                 output.accept(ModItems.GLITCH_SHOVEL.get());
                                 output.accept(ModItems.GLITCH_SWORD.get());
+                                output.accept(ModItems.GLITCH_BOOTS.get());
+                                output.accept(ModItems.GLITCH_LEGGINGS.get());
+                                output.accept(ModItems.GLITCH_CHESTPLATE.get());
+                                output.accept(ModItems.GLITCH_HELMET.get());
                             })
                             .build());
 

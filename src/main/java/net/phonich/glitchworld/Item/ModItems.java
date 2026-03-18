@@ -2,6 +2,7 @@ package net.phonich.glitchworld.Item;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.armortrim.ArmorTrim;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -52,7 +53,18 @@ public class ModItems {
     public static final DeferredItem<AxeItem> GLITCH_AXE = ITEMS.register("glitch_axe",
             () -> new AxeItem(ModToolTiers.GLITCH, new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.GLITCH, 11, -3f))));
 
-
+    public static final DeferredItem<ArmorItem> GLITCH_HELMET = ITEMS.register("glitch_helmet",
+            () -> new ArmorItem(ModArmorMaterials.GLITCH_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(42))));
+    public static final DeferredItem<ArmorItem> GLITCH_CHESTPLATE = ITEMS.register("glitch_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.GLITCH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(42))));
+    public static final DeferredItem<ArmorItem> GLITCH_LEGGINGS = ITEMS.register("glitch_leggings",
+            () -> new ArmorItem(ModArmorMaterials.GLITCH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(42))));
+    public static final DeferredItem<ArmorItem> GLITCH_BOOTS = ITEMS.register("glitch_boots",
+            () -> new ArmorItem(ModArmorMaterials.GLITCH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(42))));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus); // говорим неофордж, что пора регать
