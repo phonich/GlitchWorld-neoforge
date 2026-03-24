@@ -39,13 +39,13 @@ public class GeneralToolsEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onEntityDamage(LivingDamageEvent.Pre event) {
-        ItemStack weaponItem = event.getSource().getWeaponItem();
-        if (weaponItem != null && weaponItem.is(ModTags.Items.GLITCH_TOOLS)) { // первое - проверка, есть ли предмет вообще, ибо урон может быть не только от предмета и игра вылетит
-            ToolsEvents.onEntityDamageTool(event);
-        }
-    }
+//    @SubscribeEvent
+//    public static void onEntityDamage(LivingDamageEvent.Pre event) {
+//        ItemStack weaponItem = event.getSource().getWeaponItem();
+//        if (weaponItem != null && weaponItem.is(ModTags.Items.GLITCH_TOOLS)) { // первое - проверка, есть ли предмет вообще, ибо урон может быть не только от предмета и игра вылетит
+//            ToolsEvents.onEntityDamageTool(event);
+//        }
+//    }
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
@@ -56,11 +56,11 @@ public class GeneralToolsEvents {
             }
         }
 
-    @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-        if (stack.is(ModTags.Items.GLITCH_TOOLS)) {
-            ToolsEvents.onBlockBreakTool(event, stack);
-        }
-    }
+//    @SubscribeEvent
+//    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+//        ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
+//        if (stack.is(ModTags.Items.GLITCH_TOOLS)) {
+//            ToolsEvents.onBlockBreakTool(event, stack);
+//        }
+//    }
 }

@@ -54,30 +54,8 @@ public class ToolsEvents {
                     }
                 }
             }
-                else {
-                    if (stack.is(ModItems.GLITCH_SWORD.get()) && MyMethods.getStateOfGlitchItem(stack) && !player.getCooldowns().isOnCooldown(stack.getItem())) { // МЕЧ
-                        Arrow arrow = new Arrow(EntityType.ARROW, level);
-                        arrow.moveTo(MyMethods.getPosForArrow(player, 1));
-                        arrow.setOwner(player);
-                        arrow.pickup = AbstractArrow.Pickup.DISALLOWED; // нельзя поднимать стрелу
-                        arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 1.0F);
-                        level.addFreshEntity(arrow);
-                        if (level instanceof ServerLevel level1) {
-                            stack.hurtAndBreak(3, level1, player, item -> {
-                                player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND);
-                            });
-                        }
-                        player.getCooldowns().addCooldown(stack.getItem(), 30); // ставим кулдаун
-                    }
-
-                    if (stack.is(ModItems.GLITCH_PICKAXE.get()) && MyMethods.getStateOfGlitchItem(stack)) { // КИРКА
-                        MyMethods.changeBigDickState(stack, player);
-                    } else if (stack.is(ModItems.GLITCH_SHOVEL.get()) && MyMethods.getStateOfGlitchItem(stack)) {
-                        MyMethods.changeBigDickState(stack, player);
-                    }
-                }
-            }
         }
+    }
 
 
     public static void onPlayerTickTool(PlayerTickEvent.Post event) {
@@ -92,51 +70,12 @@ public class ToolsEvents {
                 } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
                     MyMethods.updateDurationOfEffect(MobEffects.DIG_SPEED, player);
                 }
-
-            }
-        }
-    }
-
-    public static void onEntityDamageTool(LivingDamageEvent.Pre event) {
-        if (event.getSource().getEntity() instanceof Player player && !event.getEntity().level().isClientSide) {
-            ItemStack stack = player.getMainHandItem();
-
-            if (MyMethods.getStateOfGlitchItem(stack)) {// если режим активирован
-
-                if (stack.is(ModItems.GLITCH_SWORD.get())) { // МЕЧ
-                    event.setNewDamage(event.getOriginalDamage() + 5); // увеличиваем урон
-                    LivingEntity livingEntity = event.getEntity();
-                    BlockPos pos = livingEntity.blockPosition();
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2)); // даем эффект на противника
-                    int hits = stack.getOrDefault(ModDataComponents.HITS_TO_ANOMALY, 10);
-                    hits -= 1;
-                    stack.set(ModDataComponents.HITS_TO_ANOMALY, hits);
-                    if (hits < 1) { // взрывы
-                        event.getEntity().level().explode(null, pos.getX(), pos.getY(), pos.getZ(), 1F, false, Level.ExplosionInteraction.NONE);
-                        stack.set(ModDataComponents.HITS_TO_ANOMALY, 10);
-                    }
-                }
-            }
-
-
-        }
-    }
-
-    public static void onBlockBreakTool(BlockEvent.BreakEvent event, ItemStack stack) {
-        if (stack.getOrDefault(ModDataComponents.IS_GLITCH_STATE_ACTIVE, false)) {
-            Player player = event.getPlayer();
-            Level level = event.getPlayer().level();
-            BlockPos pos = event.getPos();
-            BlockState state = event.getState();
-            if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
-                if (stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false)) {
-                    MyMethods.bigDick(player, level, pos, state, BlockTags.MINEABLE_WITH_PICKAXE);
-                }
-            } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
-                if (stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false)) { // ЛОПАТА
-                    MyMethods.bigDick(player, level, pos, state, BlockTags.MINEABLE_WITH_SHOVEL);
-                }
             }
         }
     }
 }
+//    public static void onEntityDamageTool(LivingDamageEvent.Pre event) {
+//    }
+//
+//    public static void onBlockBreakTool(BlockEvent.BreakEvent event, ItemStack stack) {
+//        }
