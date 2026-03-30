@@ -54,6 +54,9 @@ public class GeneralToolsEvents {
         if (stack.is(ModTags.Items.GLITCH_TOOLS)) { // каждые пол секунды, если предмет в руке - глитч
                 ToolsEvents.onPlayerTickTool(event);
             }
+        else if (!stack.is(ModTags.Items.GLITCH_TOOLS) && event.getEntity().tickCount %20 == 0) {
+            MyMethods.toCorruption(player, -1);
+            }
         }
 
 //    @SubscribeEvent
@@ -63,4 +66,5 @@ public class GeneralToolsEvents {
 //            ToolsEvents.onBlockBreakTool(event, stack);
 //        }
 //    }
+
 }

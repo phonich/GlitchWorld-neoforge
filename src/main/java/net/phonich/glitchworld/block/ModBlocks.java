@@ -18,6 +18,7 @@ import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.custom.GlitchChaosBlock;
 import net.phonich.glitchworld.block.custom.GlitchConverter;
 import net.phonich.glitchworld.block.custom.GlitchLampBlock;
+import net.phonich.glitchworld.sound.ModSounds;
 
 import java.util.function.Supplier;
 
@@ -37,7 +38,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).noLootTable()));
 
     public static final DeferredBlock<Block> GLITCH_CONVERTER = registerBlock("glitch_converter",
-            () -> new GlitchConverter(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(20, 10)));
+            () -> new GlitchConverter(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(20, 10).sound(ModSounds.GLITCH_CONVERTER_SOUNDS)));
 
     public static final DeferredBlock<Block> GLITCH_COAL_BLOCK = registerBlock("glitch_coal_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));

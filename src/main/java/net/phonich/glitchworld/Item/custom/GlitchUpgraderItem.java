@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.phonich.glitchworld.component.ModDataComponents;
+import net.phonich.glitchworld.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -48,7 +49,7 @@ public class GlitchUpgraderItem extends Item {
             if (blocksUpgradedVar.containsKey(blockClicked)) {
                 if (num == 1) {
                     level.setBlockAndUpdate(blockPos, blocksUpgradedVar.get(blockClicked).defaultBlockState());
-                    level.playSound(null, blockPos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.playSound(null, blockPos, ModSounds.GLITCH_UPGRADER_SUCCESS.get(), SoundSource.BLOCKS, 0.6F, 0.6F);
 
                 }
                 else {
@@ -57,7 +58,7 @@ public class GlitchUpgraderItem extends Item {
                         return InteractionResult.SUCCESS;
                     }
                     level.setBlockAndUpdate(blockPos, blocksDegradedVar.get(blockClicked).defaultBlockState());
-                    level.playSound(null, blockPos, SoundEvents.ANVIL_DESTROY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.playSound(null, blockPos, ModSounds.GLITCH_UPGRADER_FAILURE.get(), SoundSource.BLOCKS, 0.6F, 0.6F);
                 }
                 context.getItemInHand().hurtAndBreak(1, serverLevel, context.getPlayer(), item -> {
                     context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND);

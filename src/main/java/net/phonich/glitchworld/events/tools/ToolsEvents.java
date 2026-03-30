@@ -61,15 +61,21 @@ public class ToolsEvents {
     public static void onPlayerTickTool(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
-        if (player.tickCount % 10 == 0) {
+
+        if (player.tickCount % 20 == 0) {
             if (stack.getOrDefault(ModDataComponents.IS_GLITCH_STATE_ACTIVE, false)) {
                 if (stack.is(ModItems.GLITCH_SWORD.get())) { // МЕЧ
                     MyMethods.updateDurationOfEffect(MobEffects.MOVEMENT_SPEED, player);
+
                 } else if (stack.is(ModItems.GLITCH_PICKAXE.get())) { // КИРКА
                     MyMethods.updateDurationOfEffect(MobEffects.NIGHT_VISION, player);
                 } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
                     MyMethods.updateDurationOfEffect(MobEffects.DIG_SPEED, player);
                 }
+                MyMethods.toCorruption(player, 2);
+            }
+            else {
+                MyMethods.toCorruption(player, -1);
             }
         }
     }

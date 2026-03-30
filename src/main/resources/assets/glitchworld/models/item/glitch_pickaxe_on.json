@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "glitchworld:item/glitch_pickaxe_on"
+  }
+}

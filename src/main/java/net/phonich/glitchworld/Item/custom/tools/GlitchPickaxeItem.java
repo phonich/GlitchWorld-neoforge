@@ -24,7 +24,7 @@ public class GlitchPickaxeItem extends PickaxeItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack stack = player.getItemInHand(interactionHand);
         if (MyMethods.getStateOfGlitchItem(stack) && !player.isShiftKeyDown()) { // КИРКА
-            MyMethods.changeBigDickState(stack, player);
+            MyMethods.changeBigDickState(stack, player, level);
         }
         return super.use(level, player, interactionHand);
     }

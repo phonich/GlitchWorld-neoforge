@@ -1,10 +1,12 @@
 package net.phonich.glitchworld.util;
 
+import com.ibm.icu.text.StringTransform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.effect.MobEffect;
@@ -19,6 +21,8 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import net.phonich.glitchworld.component.ModDataComponents;
+import net.phonich.glitchworld.effect.ModEffects;
+import net.phonich.glitchworld.sound.ModSounds;
 
 import java.util.List;
 import java.util.Optional;
@@ -72,13 +76,63 @@ public class MyMethods {
         }
     }
 
-    public static void changeBigDickState(ItemStack stack, Player player) {
+    public static void changeBigDickState(ItemStack stack, Player player, Level level) {
         boolean active = stack.getOrDefault(ModDataComponents.IS_BIGDICK_ON, false);
         stack.set(ModDataComponents.IS_BIGDICK_ON, !active);
         if (!active) {
             player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_3x3_on.tooltip"), true);
+            level.playSound(null, player.getOnPos(), ModSounds.BIG_DICK_CHANGE.get(), SoundSource.MASTER);
         } else {
             player.displayClientMessage(Component.translatable("tooltip.glitchworld.glitch_3x3_off.tooltip"), true);
+        }
+    }
+
+    public static void corruptPlayer(Player player, Level level, int amplifier) {
+        player.addEffect(new MobEffectInstance(ModEffects.GLITCH_CORRUPTION_EFFECT, -1, amplifier));
+        level.playSound(null, player.getOnPos(), ModSounds.SCARY_GLITCH.get(), SoundSource.PLAYERS, 1f, 1f);
+    }
+
+    public static void toCorruption(Player player, int i) {
+        if (!player.level().isClientSide) {
+            int infection = player.getData(ModAttachments.CORRUPTION);
+            if (infection <= 600 && infection >= 0) {
+                player.setData(ModAttachments.CORRUPTION, infection + i);
+                if (i > 0) {
+                    switch (infection) {
+                        case 60:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_1"));
+                            break;
+                        case 120:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_2"));
+                            break;
+                        case 180:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_3"));
+                            break;
+                        case 240:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_4"));
+                            break;
+                        case 300:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_5"));
+                            break;
+                        case 360:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_6"));
+                            break;
+                        case 420:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_7"));
+                            break;
+                        case 480:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_8"));
+                            break;
+                        case 540:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_9"));
+                            break;
+                        case 600:
+                            player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_10"));
+                            MyMethods.corruptPlayer(player, player.level(), 0);
+                            break;
+                    }
+                }
+            }
         }
     }
 }

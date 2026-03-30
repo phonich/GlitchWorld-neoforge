@@ -2,6 +2,7 @@ package net.phonich.glitchworld.Item.custom.tools;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.phonich.glitchworld.component.ModDataComponents;
+import net.phonich.glitchworld.sound.ModSounds;
 import net.phonich.glitchworld.util.MyMethods;
 
 public class GlitchSwordItem extends SwordItem {
@@ -59,6 +61,7 @@ public class GlitchSwordItem extends SwordItem {
                 });
             }
             player.getCooldowns().addCooldown(stack.getItem(), 30); // ставим кулдаун
+            level.playSound(null, player.getOnPos(), ModSounds.GLITCH_SWORD_SHOOT.get(), SoundSource.MASTER);
         }
         return super.use(level, player, interactionHand);
     }

@@ -32,7 +32,8 @@ displayURL = "https://phonich.xyz" #optional
 authors = "phonich_" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description = '''This mod adds to your world new glitch things'''
+description = '''Glitch World is a mod where reality itself starts to break. Harness unstable Glitch energy, craft corrupted tools, and explore a new dimension. 
+§cBut be careful...§r the more you control the Glitch, the more it starts to control you.'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 #[[mixins]]

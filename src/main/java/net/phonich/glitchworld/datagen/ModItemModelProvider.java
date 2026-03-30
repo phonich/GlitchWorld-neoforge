@@ -51,14 +51,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HAMMER.get());
         basicItem(ModItems.RAW_GLITCH.get());
         basicItem(ModItems.DEV_TOOl.get());
+        basicItem(ModItems.WHAT.get());
         handheldItem(ModItems.GLITCH_AXE.get());
-        handheldItem(ModItems.GLITCH_PICKAXE.get());
-        handheldItem(ModItems.GLITCH_SHOVEL.get());
         handheldItem(ModItems.GLITCH_SWORD.get());
         trimmedArmorItem(ModItems.GLITCH_BOOTS);
         trimmedArmorItem(ModItems.GLITCH_CHESTPLATE);
         trimmedArmorItem(ModItems.GLITCH_HELMET);
         trimmedArmorItem(ModItems.GLITCH_LEGGINGS);
+        basicItem(ModItems.GLITCH_CARROT.get());
 
     }
 

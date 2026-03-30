@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.ModBlocks;
+import net.phonich.glitchworld.sound.ModSounds;
 
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class GlitchConverter extends Block {
                 player.getItemInHand(interactionHand).setCount(itemStack.getCount() - 1);
                 player.hurt(player.damageSources().magic(), 1.0F);
                 player.giveExperiencePoints(4);
-                level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.playSound(null, pos, ModSounds.GLITCH_CONVERTER_CONVERT.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
             }
 
         }

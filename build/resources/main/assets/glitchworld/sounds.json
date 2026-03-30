@@ -1,8 +1,80 @@
 {
-  "glitch_break": {
-    "category": "block",
+  "glitch_sword_shoot": {
+    "subtitle": "sounds.glitchworld.glitch_sword_shoot",
     "sounds": [
-      "glitchworld:glitch_break"
+      "glitchworld:glitch_sword_shoot"
+    ]
+  },
+  "glitch_converter_break": {
+    "subtitle": "sounds.glitchworld.glitch_converter_break",
+    "sounds": [
+      "glitchworld:glitch_converter_break"
+    ]
+  },
+  "glitch_converter_place": {
+    "subtitle": "sounds.glitchworld.glitch_converter_place",
+    "sounds": [
+      "glitchworld:glitch_converter_place"
+    ]
+  },
+  "glitch_converter_step": {
+    "subtitle": "sounds.glitchworld.glitch_converter_step",
+    "sounds": [
+      "glitchworld:glitch_converter_step"
+    ]
+  },
+  "glitch_converter_hit": {
+    "subtitle": "sounds.glitchworld.glitch_converter_hit",
+    "sounds": [
+      "glitchworld:glitch_converter_hit"
+    ]
+  },
+  "glitch_converter_fall": {
+    "subtitle": "sounds.glitchworld.glitch_converter_fall",
+    "sounds": [
+      "glitchworld:glitch_converter_fall"
+    ]
+  },
+  "big_dick_change": {
+    "subtitle": "sounds.glitchworld.big_dick_change",
+    "sounds": [
+      "glitchworld:big_dick_change"
+    ]
+  },
+  "glitch_pouch_open": {
+    "subtitle": "sounds.glitchworld.glitch_pouch_open",
+    "sounds": [
+      "glitchworld:glitch_pouch_open"
+    ]
+  },
+  "hammer_use": {
+    "subtitle": "sounds.glitchworld.hammer_use",
+    "sounds": [
+      "glitchworld:hammer_use"
+    ]
+  },
+  "glitch_upgrader_failure": {
+    "subtitle": "sounds.glitchworld.glitch_upgrader_failure",
+    "sounds": [
+      "glitchworld:glitch_upgrader_failure"
+    ]
+  },
+  "glitch_upgrader_success": {
+    "subtitle": "sounds.glitchworld.glitch_upgrader_success",
+    "sounds": [
+      "glitchworld:glitch_upgrader_success"
+    ]
+  },
+  "glitch_converter_convert": {
+    "subtitle": "sounds.glitchworld.glitch_converter_convert",
+    "sounds": [
+      "glitchworld:glitch_converter_convert"
+    ]
+  },
+  "scary_glitch": {
+    "subtitle": "sounds.glitchworld.scary_glitch",
+    "sounds": [
+      "glitchworld:scary_glitch"
     ]
   }
 }

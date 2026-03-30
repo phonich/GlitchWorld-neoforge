@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.ModBlocks;
+import net.phonich.glitchworld.sound.ModSounds;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class HammerItem extends Item {
             if (blockState.getBlock() == ModBlocks.GLITCH_ORE.get()) {
                 level.destroyBlock(pos, false); // для звука и партиклов
                 level.setBlock(pos, Blocks.STONE.defaultBlockState(), 11);
-                level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS);
+                level.playSound(null, pos, ModSounds.HAMMER_USE.get(), SoundSource.BLOCKS);
                 level.addFreshEntity(itemEntity);
                 if (level instanceof ServerLevel serverLevel) {
                     context.getItemInHand().hurtAndBreak(1, serverLevel, context.getPlayer(), e -> {

@@ -10,12 +10,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.phonich.glitchworld.Item.ModItems;
+import net.phonich.glitchworld.sound.ModSounds;
 
 
 import java.util.List;
 import java.util.Random;
 
-import static net.phonich.glitchworld.Item.ModItems.RAW_GLITCH;
+import static net.phonich.glitchworld.Item.ModItems.*;
 
 
 public class GlitchPouchItem extends Item {
@@ -29,14 +30,13 @@ public class GlitchPouchItem extends Item {
         Player player = pContext.getPlayer();
 
          // объект для рандома
-        Item[] someItems = {RAW_GLITCH.get(), Items.DIAMOND, Items.EMERALD}; // список предметов
+        Item[] someItems = {RAW_GLITCH.get(), Items.DIAMOND, Items.EMERALD, GLITCH_DUST.get(), GLITCH_APPLE.get()}; // список предметов
         Item randItem = someItems[level.random.nextInt(someItems.length)];
         if (!level.isClientSide()) {
             player.addItem(new ItemStack(randItem, 1));
             player.getItemInHand(pContext.getHand()).setCount(pContext.getItemInHand().getCount() - 1);
-            level.playSound(null, pContext.getClickedPos(), SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.MASTER, 1.0F, 1.0F);
+            level.playSound(null, pContext.getClickedPos(), ModSounds.GLITCH_POUCH_OPEN.get(), SoundSource.MASTER, 1.0F, 1.0F);
         }
         return InteractionResult.SUCCESS;
     }
 }
-// Не доделано, хочу седня успеть запушить:(

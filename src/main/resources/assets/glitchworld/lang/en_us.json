@@ -32,5 +32,20 @@
   "item.glitchworld.glitch_helmet": "Glitch Helmet",
   "item.glitchworld.glitch_chestplate": "Glitch Chestplate",
   "item.glitchworld.glitch_leggings": "Glitch Leggings",
-  "item.glitchworld.glitch_boots": "Glitch Boots"
+  "item.glitchworld.glitch_boots": "Glitch Boots",
+  "item.glitchworld.what": "What?",
+  "effect.glitchworld.glitch_corruption": "Glitch Corruption",
+  "effect.glitchworld.glitch_addiction": "Glitch Addiction",
+  "item.glitchworld.glitch_carrot": "Glitch Carrot",
+  "tooltip.glitchworld.to_corruption": "To corruption: §d %s",
+  "tooltip.glitchworld.warning_1": "§7The tool hums quietly.§r",
+  "tooltip.glitchworld.warning_2": "§7Your hand feels slightly numb.§r",
+  "tooltip.glitchworld.warning_3": "§5Something inside it is… waking up.§r",
+  "tooltip.glitchworld.warning_4": "§7You should probably stop.§r",
+  "tooltip.glitchworld.warning_5": "§8…or maybe it’s already too late.§r",
+  "tooltip.glitchworld.warning_6": "§8The tool feels heavier.§r",
+  "tooltip.glitchworld.warning_7": "§5Something is wrong.§r",
+  "tooltip.glitchworld.warning_8": "§8But you can’t quite tell what.§r",
+  "tooltip.glitchworld.warning_9": "§5It grows stronger with every second while this is active.§r",
+  "tooltip.glitchworld.warning_10": "§8You feel… connected.§r"
 }

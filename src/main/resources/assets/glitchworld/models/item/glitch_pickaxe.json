@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "glitchworld:item/glitch_pickaxe"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "glitchworld:on": 1
+      },
+      "model": "glitchworld:item/glitch_pickaxe_on"
+    }
+  ]
+}

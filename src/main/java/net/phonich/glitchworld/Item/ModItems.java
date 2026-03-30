@@ -7,6 +7,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.phonich.glitchworld.Glitchworld;
 import net.phonich.glitchworld.Item.custom.*;
 
+import net.phonich.glitchworld.Item.custom.food.GlitchAppleItem;
+import net.phonich.glitchworld.Item.custom.food.GlitchCarrotItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchPickaxeItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchShovelItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchSwordItem;
@@ -43,6 +45,12 @@ public class ModItems {
 
     public static final DeferredItem<Item> DEV_TOOl = ITEMS.register("dev_tool",
             () -> new DevToolItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> WHAT = ITEMS.register("what",
+            () -> new WhatItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> GLITCH_CARROT = ITEMS.register("glitch_carrot",
+            () -> new GlitchCarrotItem(new Item.Properties().food(ModFoods.GLITCH_CARROT)));
 
     public static final DeferredItem<SwordItem> GLITCH_SWORD = ITEMS.register("glitch_sword",
             () -> new GlitchSwordItem(ModToolTiers.GLITCH, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.GLITCH, 10, -2f))));

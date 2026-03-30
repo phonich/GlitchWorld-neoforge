@@ -12,3 +12,36 @@
 /weather clear
 /effect clear
 /give @s glitchworld:dev_tool
+/kill @a
+/kill @e
+/weather clear
+/kill @e
+/give @s glitchworld:what
+/kill @e
+/effect give Dev glitchworld:glitch_corruption
+/effect give @s minecraft:hunger
+/effect give Dev glitchworld:glitch_corruption
+/effect give Dev glitchworld:glitch_addiction
+/effect give Dev glitchworld:glitch_addiction infinite
+/effect clear
+/effect give Dev glitchworld:glitch_corruption infinite
+/effect give Dev glitchworld:glitch_addiction
+/effect give Dev glitchworld:glitch_addiction infinite
+/effect clear
+/effect give Dev glitchworld:glitch_addiction infinite
+/effect clear @a
+/effect give Dev glitchworld:glitch_corruption infinite
+/effect clear @a
+/clear
+/kill
+/effect give Dev glitchworld:glitch_corruption infinite 1
+/kill
+/effect clear @a
+/kill
+/time set day
+/effect give Dev glitchworld:glitch_addiction
+/effect give Dev glitchworld:glitch_addiction infinite
+/give @a glitchworld:what
+/kill @e
+/time set day
+/kill

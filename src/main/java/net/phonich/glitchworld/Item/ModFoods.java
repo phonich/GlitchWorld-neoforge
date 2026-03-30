@@ -7,14 +7,8 @@ import net.minecraft.world.food.FoodProperties;
 public class ModFoods {
     public static final FoodProperties GLITCH_APPLE = // почему-то FoodProperties - странно, но так надо
             new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f) // nutrition - скок голода восстанавливает, saturation - насыщение
-                    .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 4000), 0.5f)
-                    .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 4000), 1f)
-                    .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4000), 1f)
-                    .effect(() -> new MobEffectInstance(MobEffects.DARKNESS, 400), 0.2f)
-                    .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 4000), 0.2F)
-                    .effect(() -> new MobEffectInstance(MobEffects.WITHER, 400), 0.2F)
-                    .effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 350), 0.2F)
-                    .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10000), 0.5F)
                     .alwaysEdible() // чтобы можно было есть при полном голоде
                     .build();
+    public static final FoodProperties GLITCH_CARROT = new FoodProperties.Builder().nutrition(9).saturationModifier(0.2f)
+            .effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 4000), 1.0F).alwaysEdible().build();
 }

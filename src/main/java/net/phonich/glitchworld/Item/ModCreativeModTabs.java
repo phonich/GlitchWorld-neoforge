@@ -47,6 +47,7 @@ public class ModCreativeModTabs {
                                 output.accept(ModItems.GLITCH_LEGGINGS.get());
                                 output.accept(ModItems.GLITCH_CHESTPLATE.get());
                                 output.accept(ModItems.GLITCH_HELMET.get());
+                                output.accept(ModItems.GLITCH_CARROT.get());
                             })
                             .build());
 

@@ -17,8 +17,11 @@ import net.phonich.glitchworld.Item.ModCreativeModTabs;
 import net.phonich.glitchworld.Item.ModItems;
 import net.phonich.glitchworld.block.ModBlocks;
 import net.phonich.glitchworld.component.ModDataComponents;
+import net.phonich.glitchworld.effect.ModEffects;
 import net.phonich.glitchworld.events.tools.GeneralToolsEvents;
-import net.phonich.glitchworld.events.tools.ToolsEvents;
+import net.phonich.glitchworld.sound.ModSounds;
+import net.phonich.glitchworld.util.ModAttachments;
+import net.phonich.glitchworld.util.ModItemProperties;
 import org.slf4j.Logger;
 
 @Mod(Glitchworld.MODID)
@@ -30,10 +33,13 @@ public class Glitchworld {
         modEventBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(this);
+        ModAttachments.ATTACHMENTS.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         NeoForge.EVENT_BUS.register(GeneralToolsEvents.class); // регаем события
+        ModSounds.register(modEventBus);
         ModDataComponents.register(modEventBus);
+        ModEffects.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -57,6 +63,7 @@ public class Glitchworld {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            ModItemProperties.addCustomProperties();
         }
     }
 }
