@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -39,13 +40,6 @@ public class GeneralToolsEvents {
         }
     }
 
-//    @SubscribeEvent
-//    public static void onEntityDamage(LivingDamageEvent.Pre event) {
-//        ItemStack weaponItem = event.getSource().getWeaponItem();
-//        if (weaponItem != null && weaponItem.is(ModTags.Items.GLITCH_TOOLS)) { // первое - проверка, есть ли предмет вообще, ибо урон может быть не только от предмета и игра вылетит
-//            ToolsEvents.onEntityDamageTool(event);
-//        }
-//    }
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
@@ -58,13 +52,5 @@ public class GeneralToolsEvents {
             MyMethods.toCorruption(player, -1);
             }
         }
-
-//    @SubscribeEvent
-//    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-//        ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-//        if (stack.is(ModTags.Items.GLITCH_TOOLS)) {
-//            ToolsEvents.onBlockBreakTool(event, stack);
-//        }
-//    }
 
 }

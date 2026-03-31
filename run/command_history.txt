@@ -45,3 +45,6 @@
 /kill @e
 /time set day
 /kill
+/time set day
+/kill
+/time set day

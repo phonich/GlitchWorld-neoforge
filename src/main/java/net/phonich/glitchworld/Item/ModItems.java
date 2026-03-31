@@ -9,6 +9,7 @@ import net.phonich.glitchworld.Item.custom.*;
 
 import net.phonich.glitchworld.Item.custom.food.GlitchAppleItem;
 import net.phonich.glitchworld.Item.custom.food.GlitchCarrotItem;
+import net.phonich.glitchworld.Item.custom.tools.GlitchAxeItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchPickaxeItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchShovelItem;
 import net.phonich.glitchworld.Item.custom.tools.GlitchSwordItem;
@@ -59,7 +60,7 @@ public class ModItems {
     public static final DeferredItem<ShovelItem> GLITCH_SHOVEL = ITEMS.register("glitch_shovel",
             () -> new GlitchShovelItem(ModToolTiers.GLITCH, new Item.Properties().attributes(ShovelItem.createAttributes(ModToolTiers.GLITCH, 6, -2f))));
     public static final DeferredItem<AxeItem> GLITCH_AXE = ITEMS.register("glitch_axe",
-            () -> new AxeItem(ModToolTiers.GLITCH, new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.GLITCH, 11, -3f))));
+            () -> new GlitchAxeItem(ModToolTiers.GLITCH, new Item.Properties().attributes(AxeItem.createAttributes(ModToolTiers.GLITCH, 11, -3f))));
 
     public static final DeferredItem<ArmorItem> GLITCH_HELMET = ITEMS.register("glitch_helmet",
             () -> new ArmorItem(ModArmorMaterials.GLITCH_ARMOR_MATERIAL, ArmorItem.Type.HELMET,

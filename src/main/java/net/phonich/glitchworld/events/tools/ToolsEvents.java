@@ -20,6 +20,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -71,6 +74,8 @@ public class ToolsEvents {
                     MyMethods.updateDurationOfEffect(MobEffects.NIGHT_VISION, player);
                 } else if (stack.is(ModItems.GLITCH_SHOVEL.get())) { // ЛОПАТА
                     MyMethods.updateDurationOfEffect(MobEffects.DIG_SPEED, player);
+                } else if (stack.is(ModItems.GLITCH_AXE.get())) { // ТОПОР
+                    MyMethods.updateDurationOfEffect(MobEffects.REGENERATION, player);
                 }
                 MyMethods.toCorruption(player, 2);
             }
@@ -79,9 +84,6 @@ public class ToolsEvents {
             }
         }
     }
+
+
 }
-//    public static void onEntityDamageTool(LivingDamageEvent.Pre event) {
-//    }
-//
-//    public static void onBlockBreakTool(BlockEvent.BreakEvent event, ItemStack stack) {
-//        }

@@ -11,6 +11,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
@@ -92,41 +93,58 @@ public class MyMethods {
         level.playSound(null, player.getOnPos(), ModSounds.SCARY_GLITCH.get(), SoundSource.PLAYERS, 1f, 1f);
     }
 
+    public static void giveRandomBadEffect(Player player) {
+        Holder<MobEffect>[] effects = new Holder[]{
+                MobEffects.HUNGER,
+                MobEffects.WEAKNESS,
+                MobEffects.CONFUSION,
+                MobEffects.MOVEMENT_SLOWDOWN
+        };
+        int random = player.level().random.nextInt(effects.length);
+        player.addEffect(new MobEffectInstance(effects[random], 60, 0));
+    }
+
     public static void toCorruption(Player player, int i) {
         if (!player.level().isClientSide) {
             int infection = player.getData(ModAttachments.CORRUPTION);
-            if (infection <= 600 && infection >= 0) {
+            if (i < 0 && infection < 1) {
+                return;
+            }
+            if (infection <= 1000) {
                 player.setData(ModAttachments.CORRUPTION, infection + i);
                 if (i > 0) {
                     switch (infection) {
-                        case 60:
+                        case 120:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_1"));
                             break;
-                        case 120:
+                        case 240:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_2"));
                             break;
-                        case 180:
+                        case 420:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_3"));
+                            giveRandomBadEffect(player);
                             break;
-                        case 240:
+                        case 500:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_4"));
                             break;
-                        case 300:
+                        case 600:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_5"));
+                            giveRandomBadEffect(player);
                             break;
-                        case 360:
+                        case 700:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_6"));
                             break;
-                        case 420:
+                        case 800:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_7"));
+                            giveRandomBadEffect(player);
                             break;
-                        case 480:
+                        case 850:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_8"));
                             break;
-                        case 540:
+                        case 900:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_9"));
                             break;
-                        case 600:
+                        case 1000:
                             player.sendSystemMessage(Component.translatable("tooltip.glitchworld.warning_10"));
                             MyMethods.corruptPlayer(player, player.level(), 0);
                             break;
